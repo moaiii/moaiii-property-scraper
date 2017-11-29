@@ -1,0 +1,55 @@
+
+  <!DOCTYPE html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Auction Scrapper</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+          #map {
+            height: 100%;
+          }
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+    </head>
+    <body>
+      <h1>Auction Scrapper</h1>
+      <div id="map"></div>
+
+          <script>
+          
+            function initMap() {
+          
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 5,
+                center: {"lat":55.864237,"lng":-4.251806}
+              });
+          
+              var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          
+              var markers = locations.map(function(location, i) {
+                return new google.maps.Marker({
+                  position: location,
+                  label: labels[i % labels.length]
+                });
+              });
+          
+              var markerCluster = new MarkerClusterer(map, markers,
+                  {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+            }
+            var locations = [{"lat":55.8620084,"lng":-4.202631},{"lat":55.8620084,"lng":-4.202631},{"lat":55.63540709999999,"lng":-4.791815499999999},{"lat":55.63540709999999,"lng":-4.791815499999999},{"lat":55.76495139999999,"lng":-3.6889066},{"lat":55.76495139999999,"lng":-3.6889066},{"lat":55.4640761,"lng":-4.2315229},{"lat":55.4640761,"lng":-4.2315229},{"lat":54.9675921,"lng":-4.4813971},{"lat":54.9675921,"lng":-4.4813971},{"lat":55.6327873,"lng":-4.7866933},{"lat":55.6327873,"lng":-4.7866933},{"lat":55.9644894,"lng":-4.6571463},{"lat":55.9644894,"lng":-4.6571463},{"lat":55.8204481,"lng":-3.8080333},{"lat":55.8204481,"lng":-3.8080333},{"lat":55.8833778,"lng":-4.2294899},{"lat":55.8833778,"lng":-4.2294899},{"lat":55.809417,"lng":-4.3204239},{"lat":55.809417,"lng":-4.3204239}];
+          </script>
+        
+      <script 
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+      </script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1jWP2e1rBOWNkw_jmcQ_HOQbVUWbWIJo&callback=initMap">
+      </script>
+    </body>
+  </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Auction Scrapper</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      #map {
+        height: 60%;
+        margin: 0 auto;
+        display: block;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+<body>
+  <h1>Auction Scrapper</h1>
+  <div id="map"></div>
+
+      <script>
+        function initMap() {
+      
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: {"lat":55.864237,"lng":-4.251806}
+          });
+
+          var infowindow = new google.maps.InfoWindow();
+      
+          var locations = [{"lat":55.8620879,"lng":-4.2028037},{"lat":55.8620879,"lng":-4.2028037},{"lat":55.63440379999999,"lng":-4.7909378},{"lat":55.63440379999999,"lng":-4.7909378},{"lat":55.764682,"lng":-3.688720399999999},{"lat":55.764682,"lng":-3.688720399999999},{"lat":55.4654167,"lng":-4.233273},{"lat":55.4654167,"lng":-4.233273},{"lat":54.8141535,"lng":-4.550426799999999},{"lat":54.8141535,"lng":-4.550426799999999},{"lat":55.6327612,"lng":-4.786483},{"lat":55.6327612,"lng":-4.786483},{"lat":55.9645976,"lng":-4.657432399999999},{"lat":55.9645976,"lng":-4.657432399999999},{"lat":55.8206132,"lng":-3.8075723},{"lat":55.8206132,"lng":-3.8075723},{"lat":55.883546,"lng":-4.2295411},{"lat":55.883546,"lng":-4.2295411},{"lat":55.8094023,"lng":-4.319187299999999},{"lat":55.8094023,"lng":-4.319187299999999}];
+
+          var data = [{"price":29,"address":"18 Aberfoyle Street","postcode":"G31 3RR","coord":{"lat":55.8620879,"lng":-4.2028037},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":5.800000000000001,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":3.1900000000000004,"leasehold":100,"repair":5700,"total":24318.04},"totalCost":24347.04,"mortgaged":20.299999999999997,"investment":24326.74,"monthlyRent":600,"yearlyRent":7200,"roi":29.597060683017943},{"price":29,"address":"18 Aberfoyle Street","postcode":"G31 3RR","coord":{"lat":55.8620879,"lng":-4.2028037},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":5.800000000000001,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":3.1900000000000004,"leasehold":100,"repair":5700,"total":24318.04},"totalCost":24347.04,"mortgaged":20.299999999999997,"investment":24326.74,"monthlyRent":600,"yearlyRent":7200,"roi":29.597060683017943},{"price":54,"address":"66 Hamilton Street","postcode":"KA21 5DS","coord":{"lat":55.63440379999999,"lng":-4.7909378},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":10.8,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":5.94,"leasehold":100,"repair":5700,"total":24333.54},"totalCost":24387.54,"mortgaged":37.8,"investment":24349.74,"monthlyRent":600,"yearlyRent":7200,"roi":29.569104228628312},{"price":54,"address":"66 Hamilton Street","postcode":"KA21 5DS","coord":{"lat":55.63440379999999,"lng":-4.7909378},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":10.8,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":5.94,"leasehold":100,"repair":5700,"total":24333.54},"totalCost":24387.54,"mortgaged":37.8,"investment":24349.74,"monthlyRent":600,"yearlyRent":7200,"roi":29.569104228628312},{"price":65,"address":"51-53 Main Street ","postcode":"ML11 8BS","coord":{"lat":55.764682,"lng":-3.688720399999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":13,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":7.15,"leasehold":100,"repair":5700,"total":24340.36},"totalCost":24405.36,"mortgaged":45.5,"investment":24359.86,"monthlyRent":600,"yearlyRent":7200,"roi":29.556820113087678},{"price":65,"address":"51-53 Main Street ","postcode":"ML11 8BS","coord":{"lat":55.764682,"lng":-3.688720399999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":13,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":7.15,"leasehold":100,"repair":5700,"total":24340.36},"totalCost":24405.36,"mortgaged":45.5,"investment":24359.86,"monthlyRent":600,"yearlyRent":7200,"roi":29.556820113087678},{"price":69,"address":"50 Peesweep Brae","postcode":"KA18 3LE","coord":{"lat":55.4654167,"lng":-4.233273},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":13.8,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":7.59,"leasehold":100,"repair":5700,"total":24342.84},"totalCost":24411.84,"mortgaged":48.3,"investment":24363.54,"monthlyRent":600,"yearlyRent":7200,"roi":29.55235569215311},{"price":69,"address":"50 Peesweep Brae","postcode":"KA18 3LE","coord":{"lat":55.4654167,"lng":-4.233273},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":13.8,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":7.59,"leasehold":100,"repair":5700,"total":24342.84},"totalCost":24411.84,"mortgaged":48.3,"investment":24363.54,"monthlyRent":600,"yearlyRent":7200,"roi":29.55235569215311},{"price":32,"address":" The Haven","postcode":"DG8 9NF","coord":{"lat":54.8141535,"lng":-4.550426799999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":6.4,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":3.52,"leasehold":100,"repair":5700,"total":24319.9},"totalCost":24351.9,"mortgaged":22.4,"investment":24329.5,"monthlyRent":600,"yearlyRent":7200,"roi":29.593703117614417},{"price":32,"address":" The Haven","postcode":"DG8 9NF","coord":{"lat":54.8141535,"lng":-4.550426799999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":6.4,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":3.52,"leasehold":100,"repair":5700,"total":24319.9},"totalCost":24351.9,"mortgaged":22.4,"investment":24329.5,"monthlyRent":600,"yearlyRent":7200,"roi":29.593703117614417},{"price":159,"address":"36 Dockhead Street","postcode":"KA21 5EG","coord":{"lat":55.6327612,"lng":-4.786483},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":31.8,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":17.49,"leasehold":100,"repair":5700,"total":24398.64},"totalCost":24557.64,"mortgaged":111.3,"investment":24446.34,"monthlyRent":600,"yearlyRent":7200,"roi":29.452261565534965},{"price":159,"address":"36 Dockhead Street","postcode":"KA21 5EG","coord":{"lat":55.6327612,"lng":-4.786483},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":31.8,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":17.49,"leasehold":100,"repair":5700,"total":24398.64},"totalCost":24557.64,"mortgaged":111.3,"investment":24446.34,"monthlyRent":600,"yearlyRent":7200,"roi":29.452261565534965},{"price":105,"address":" Former Muirholm Hotel","postcode":"G82 5PD","coord":{"lat":55.9645976,"lng":-4.657432399999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":21,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":11.55,"leasehold":100,"repair":5700,"total":24365.160000000003},"totalCost":24470.160000000003,"mortgaged":73.5,"investment":24396.660000000003,"monthlyRent":600,"yearlyRent":7200,"roi":29.512236511063396},{"price":105,"address":" Former Muirholm Hotel","postcode":"G82 5PD","coord":{"lat":55.9645976,"lng":-4.657432399999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":21,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":11.55,"leasehold":100,"repair":5700,"total":24365.160000000003},"totalCost":24470.160000000003,"mortgaged":73.5,"investment":24396.660000000003,"monthlyRent":600,"yearlyRent":7200,"roi":29.512236511063396},{"price":135,"address":"17 Shottskirk Road","postcode":"ML7 4AB","coord":{"lat":55.8206132,"lng":-3.8075723},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":27,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":14.85,"leasehold":100,"repair":5700,"total":24383.760000000002},"totalCost":24518.760000000002,"mortgaged":94.5,"investment":24424.260000000002,"monthlyRent":600,"yearlyRent":7200,"roi":29.47888697549076},{"price":135,"address":"17 Shottskirk Road","postcode":"ML7 4AB","coord":{"lat":55.8206132,"lng":-3.8075723},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":27,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":14.85,"leasehold":100,"repair":5700,"total":24383.760000000002},"totalCost":24518.760000000002,"mortgaged":94.5,"investment":24424.260000000002,"monthlyRent":600,"yearlyRent":7200,"roi":29.47888697549076},{"price":269,"address":"247-255 Springburn Way","postcode":"G21 1DX","coord":{"lat":55.883546,"lng":-4.2295411},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":53.800000000000004,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":29.590000000000003,"leasehold":100,"repair":5700,"total":24466.84},"totalCost":24735.84,"mortgaged":188.29999999999998,"investment":24547.54,"monthlyRent":600,"yearlyRent":7200,"roi":29.330841298150446},{"price":269,"address":"247-255 Springburn Way","postcode":"G21 1DX","coord":{"lat":55.883546,"lng":-4.2295411},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":53.800000000000004,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":29.590000000000003,"leasehold":100,"repair":5700,"total":24466.84},"totalCost":24735.84,"mortgaged":188.29999999999998,"investment":24547.54,"monthlyRent":600,"yearlyRent":7200,"roi":29.330841298150446},{"price":60,"address":"51 Capelrig Street","postcode":"G46 8LP","coord":{"lat":55.8094023,"lng":-4.319187299999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":12,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":6.6,"leasehold":100,"repair":5700,"total":24337.260000000002},"totalCost":24397.260000000002,"mortgaged":42,"investment":24355.260000000002,"monthlyRent":600,"yearlyRent":7200,"roi":29.562402536454137},{"price":60,"address":"51 Capelrig Street","postcode":"G46 8LP","coord":{"lat":55.8094023,"lng":-4.319187299999999},"fees":{"bookingFee":250,"arrangementFee":2000,"mortgageValuation":150,"stampDuty":0.03,"deposit":12,"valuation":1500,"surveyor":600,"legal":1500,"localPlans":300,"electronicTransfer":50,"estateAgent":6.6,"leasehold":100,"repair":5700,"total":24337.260000000002},"totalCost":24397.260000000002,"mortgaged":42,"investment":24355.260000000002,"monthlyRent":600,"yearlyRent":7200,"roi":29.562402536454137}];
+      
+          var marker, i;
+          
+            for (i = 0; i < locations.length; i++) {  
+              marker = new google.maps.Marker({
+                position: locations[i],
+                map: map
+              });
+  
+              google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(JSON.stringify({
+                    price: JSON.stringify(data[i].price) 
+,
+                    fees: JSON.stringify(data[i].fees.total) 
+,
+                    investment: JSON.stringify(data[i].investment) 
+,
+                    roi: JSON.stringify(Math.round(data[i].roi) + "%"),
+                  }));
+                  infowindow.open(map, marker);
+                }
+              })(marker, i));
+            }
+        }
+      </script>
+    
+  <script 
+    src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1jWP2e1rBOWNkw_jmcQ_HOQbVUWbWIJo&callback=initMap">
+  </script>
+</body>
+</html>
